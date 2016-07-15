@@ -19,6 +19,6 @@ RUN locale-gen en_US.UTF-8 && \
     libjpeg-dev libatlas-base-dev libzmq3-dev libxslt1-dev libxml2-dev \
     python-dev python3-dev python-all python-all-dev \
     python3-all python3-all-dev python-numpy python3-numpy python-setuptools \
-    python3-setuptools python-stdeb python3-stdeb && \
+    python3-setuptools python-stdeb python3-stdeb python-pip python3-pip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
