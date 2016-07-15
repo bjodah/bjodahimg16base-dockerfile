@@ -19,22 +19,6 @@ RUN locale-gen en_US.UTF-8 && \
     libjpeg-dev libatlas-base-dev libzmq3-dev libxslt1-dev libxml2-dev \
     python-dev python3-dev python-all python-all-dev \
     python3-all python3-all-dev python-numpy python3-numpy python-setuptools \
-    python3-setuptools && \
+    python3-setuptools python-stdeb python3-stdeb && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-RUN \
-    cd /tmp && \
-    wget --quiet http://hera.physchem.kth.se/~repo/bjodahimg16base/latest/pypi/setuptools-24.0.3.tar.gz && \
-    tar xvzf setuptools-*.tar.gz  && \
-    cd setuptools-*  && \
-    python2 setup.py install && \
-    python3 setup.py install && \
-    hash -r  && \
-    for FNAME in stdeb-0.8.5.tar.gz ; do \
-        wget --quiet http://hera.physchem.kth.se/~repo/bjodahimg16base/latest/pypi/$FNAME -O /tmp/$FNAME; \
-    done && \
-    for PYPKG in stdeb ; do \
-        easy_install-2.7 --always-unzip --allow-hosts=None --find-links file:///tmp/ $PYPKG; \
-        easy_install-3.4 --always-unzip --allow-hosts=None --find-links file:///tmp/ $PYPKG; \
-    done && \
-    rm -r /tmp/*
