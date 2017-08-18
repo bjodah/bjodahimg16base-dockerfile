@@ -22,7 +22,7 @@ RUN apt-get update && \
     python3-all python3-all-dev && \
     cd /tmp && \
     for FNAME in get-pip.py; do \
-        curl -LOs "http://hera.physchem.kth.se/~repo/bjodahimg16base/latest/blobs/$FNAME"; \
+        curl -LOs "http://hera.physchem.kth.se/~repo/bjodahimg16base/v1.2/blobs/$FNAME"; \
     done && \
     python2 get-pip.py && \
     python3 get-pip.py && \
